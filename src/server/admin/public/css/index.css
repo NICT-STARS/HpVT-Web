@@ -1,0 +1,497 @@
+body.select { background:#333; }
+
+body        #select_cols          { position:fixed; top:10px; right:10px; }
+body        #select_cols i        { font-size:20px; vertical-align:middle; }
+body        #select_cols i:before { content:"\f00a"; }
+body        #select_cols select   { width:95px; height:30px; font-size:12px; text-indent:10px; color:#666; border:solid 1px #ddd; }
+body.select #select_cols          { display:none; }
+
+#list            { display:flex; flex-flow:row wrap; justify-content:center; margin:60px auto 40px; padding:0px; list-style-type:none; }
+#list > li       { display:block; margin:4px; width:19%; background:#222; box-shadow:0 2px 5px rgba(0,0,0,0.2); transition:0.2s; }
+#list > li.dummy { height:0px; }
+
+#list > li > *                                                             { display:none; text-align:center; }
+#list > li > .image                                                        { display:block; width:100%; position:relative; }
+#list > li > .image > .view_area                    > img                  { width:100%; margin:auto; }
+#list > li > .image > .bar                                                 { display:none; }
+#list > li > .image > .caption                                             { display:block; font-size:12px; padding:6px 0 24px 0; color:lightblue; cursor:pointer; position:relative; }
+#list > li > .image > .caption:hover                                       { color:dodgerblue; }
+#list > li > .image > .caption                      > i:first-child:before { content:"\f1eb"; }
+#list > li > .image > .date                                                { display:block; font-size:12px; padding:0 0 8px 0; color:#ccc; line-height:1.5; letter-spacing:0.1em; font-family:Roboto,sans-serif; margin-top:-20px; }
+#list > li > .image > .tab                                                 { display:none; }
+#list > li > .image > .logo                                                { display:none; }
+#list > li > .image > .rec_status                                          { position:absolute; top:5px; left:5px; color:#f00; background:none!important; font-size:12px; font-family:"Titillium Web",sans-serif; }
+#list > li > .image > .rec_status                  .rec_picture            { display:none; }
+#list > li > .image > .rec_status                  .rec_video              { display:none; }
+#list > li > .image > .rec_status.rec_picture:after                        { content:"\025cf REC" }
+#list > li > .image > .rec_status.rec_picture      .rec_picture            { display:inline-block; }
+#list > li > .image > .rec_status.rec_picture      .rec_picture:before     { content:"\f03e"; }
+#list > li > .image > .rec_status.rec_video:after                          { content:"\025cf REC" }
+#list > li > .image > .rec_status.rec_video        .rec_video              { display:inline-block; }
+#list > li > .image > .rec_status.rec_video        .rec_video:before       { content:"\f03d"; }
+
+#list > li.stoped    > .image > .caption > i                    { color:#d0011b; }
+#list > li.stoped    > .image > .date                           { color:#666; }
+
+#list > li.disabled  > .image > .caption > i                    { color:#666; }
+#list > li.disabled  > .image > .caption > i:first-child:before { color:rgba(0,0,0,0); background:url(../img/wifi_off.svg) no-repeat left -1px; background-size:13px; -webkit-background-size:13px; }
+#list > li.disabled2 > .image > .caption > i:first-child:before { color:#d0011b; content:"\f071"; background:none; }
+#list > li.disabled  > .image > .date                           { color:#666; }
+#list > li.disabled  > .image > .rec_status                     { display:none!important; }
+
+#list > li[solution_type*="video"]              > .image > .caption i:last-child:before { content:"\00a0\00a0\f03d"; color:#666; }
+#list > li[solution_type*="video"].distribution > .image > .caption i:last-child:before { color:#ffa500; }
+
+#list.cols2  > li { width:47%; }
+#list.cols3  > li { width:32%; }
+#list.cols4  > li { width:23.5%; }
+
+#list.select > li                                                                     { display:none; }
+#list.select > li.select                                                              { display:block; position:absolute; top:54px; left:0px; right:0px; width:100%; margin:0px; box-shadow:none; text-align:center; }
+#list.select > li.select > .image                                                     { position:fixed; width:70%; height:100%; background:#fff; z-index:9; }
+#list.select > li.select > .image > *                                                 { display:block; background:#fff; }
+#list.select > li.select > .image > .view_area                                        { background:#000; }
+#list.select > li.select > .image > .view_area > img                                  { display:block; }
+#list.select > li.select > .image > .view_area > #video-player                        { padding-top:56%; position:relative; overflow:hidden; margin:auto; }
+#list.select > li.select > .image > .view_area > #video-player          > iframe      { position:absolute; top:0px; left:0px; width:100%; height:100%; border:0px; }
+#list.select > li.select > .image > .bar                                              { position:relative; height:30px; margin-top:-30px; background:rgba(43,51,63,0.7); text-align:right; }
+#list.select > li.select > .image > .bar       > span                                 { display:inline-block; width:40px; height:30px; line-height:30px; font-size:20px; text-align:center; vertical-align:middle; color:#fff; cursor:pointer; }
+#list.select > li.select > .image > .bar       > .bar_download:before                 { font-family:FontAwesome; content:"\f019"; }
+#list.select > li.select > .image > .bar       > .bar_fullscreen:before               { font-family:VideoJS;     content:"\f108"; }
+#list.select > li.select > .image > .caption                                          { text-align:left; color:#888; padding:0 0 0 16px; font-size:1.1em; font-family:"Titillium Web",sans-serif; cursor:auto; }
+#list.select > li.select > .image > .caption   > i                                    { color:dodgerblue; }
+#list.select > li.select > .image > .date                                             { text-align:left; color:#888; padding:0 0 0 16px; font-size:0.8em; letter-spacing:0; margin-top:auto; }
+#list.select > li.select > .image > .logo                                             { position:absolute; right:0px; width:120px; height:28px; margin:-36px 10px 0 0; background:url(../img/logo.png) no-repeat center; background-size:120px 28px; -webkit-background-size:120px 28px; }
+#list.select > li.select > .image > .tab                                              { position:fixed; right:0px; top:54px; width:30%; background:#333; border-bottom:solid 1px #555; font-family:sans-serif; }
+#list.select > li.select > .image > .tab       > .picture                             { display:inline-block; width:48%; height:50px; text-align:right; padding-right:2%; }
+#list.select > li.select > .image > .tab       > .video                               { display:inline-block; width:48%; height:50px; text-align:left;  padding-left :2%; }
+#list.select > li.select > .image > .tab       > *                      > span        { line-height:50px; padding:5px 20px; border-radius:30px; font-size:12px; color:#888; -webkit-tap-highlight-color:rgba(0,0,0,0); }
+#list.select > li.select > .image > .tab       > *                      > span.select { color:#fff; background:#888; transition:0.3s; }
+#list.select > li.select > .image > .tab       > .picture                 span:after  { content:"Picture"; }
+#list.select > li.select > .image > .tab       > .picture                 i:before    { content:"\f03e"; }
+#list.select > li.select > .image > .tab       > .video                   span        { visibility:hidden; }
+#list.select > li.select > .image > .tab       > .video                   span:after  { content:"Movie"; }
+#list.select > li.select > .image > .tab       > .video                   i:before    { content:"\f03d"; }
+
+#list.select > li.select > .image.fullscreen                                       { position:fixed; top:0; left:0; width:100%; height:100vh; background:#000; z-index:999999; }
+#list.select > li.select > .image.fullscreen > *                                   { display:none; }
+#list.select > li.select > .image.fullscreen > .date                               { display:none!important; }
+#list.select > li.select > .image.fullscreen > .view_area                          { display:block; }
+#list.select > li.select > .image.fullscreen > .bar                                { display:block; position:fixed; bottom:0px; left:0; width:100%; }
+#list.select > li.select > .image.fullscreen > .bar       > .bar_fullscreen:before { content:"\f109"; }
+
+#list.select > li.select[solution_type*="video"]              > .image > .caption i:last-child:before                     { color:#ccc; }
+#list.select > li.select[solution_type*="video"].distribution > .image > .caption i:last-child:before                     { color:#ffa500; }
+#list.select > li.select[solution_type*="rtmp" ]              > .image > .tab     > .video            > span              { visibility:visible; }
+#list.select > li.select[solution_type*="rtmp" ].distribution > .image > .tab     > *:not(.disabled)  > span:not(.select) { color:#ccc; }
+#list.select > li.select[solution_type*="rtmp" ].distribution > .image > .tab     > *:not(.disabled)  > span:hover        { color:#fff; cursor:pointer; transition:0.5s; }
+
+#list.select > li.select > .param                                                                   { display:block; position:absolute; right:0px; top:50px; width:30%; font-family:Roboto,sans-serif; color:#fff; background:#333; }
+#list.select > li.select > .param   h2                                                              { text-align:center; font-size:13px; font-style:normal; font-weight:normal; margin:0px; padding:8px 0; }
+#list.select > li.select > .param   label                                                           { display:inline-block; width:50%; text-align:left; font-size:13px; }
+#list.select > li.select > .param   select                                                          { display:inline-block; width:45%; height:20px; margin:8px 0; font-size:12px; text-indent:10px; outline:none; background:#fff; border:solid 1px #ddd; color:rgb(102,102,102); -moz-appearance:none; -webkit-appearance:none; appearance:none; }
+#list.select > li.select > .param   input[type="range"]                                             { display:inline-block; width:45%; height:20px; margin:8px 0; font-size:12px; text-indent:10px; outline:none; vertical-align:middle; padding:0px; }
+#list.select > li.select > .param > *                                                               { display:block; border-bottom:solid 1px #555; }
+#list.select > li.select > .param > .property:after                                                 { content:"Camera Property"; }
+#list.select > li.select > .param > .property                 i:before                              { content:"\f013"; }
+#list.select > li.select > .param > .createImageInterval      label:after                           { content:"Picture Interval"; }
+#list.select > li.select > .param > .createImageInterval      i:before                              { content:"\f03e"; }
+#list.select > li.select > .param > .createImageQuality       label:after                           { content:"Picture Quality"; }
+#list.select > li.select > .param > .createImageQuality       i:before                              { content:"\f03e"; }
+#list.select > li.select > .param > .createImageTimeStamp     label:after                           { content:"Picture Time"; }
+#list.select > li.select > .param > .createImageTimeStamp     i:before                              { content:"\f03e"; }
+#list.select > li.select > .param > .saveImage                label:after                           { content:"Save Picture"; }
+#list.select > li.select > .param > .saveImage                i:before                              { content:"\f03e"; }
+#list.select > li.select > .param > .saveImage                .server_info                          { font-size:11px; text-align:left; margin:0 0 5px 30px; }
+#list.select > li.select > .param > .saveImage                .server_info span                     { padding-right:15px; }
+#list.select > li.select > .param > .saveImage                .server_info span.alert               { color:red; }
+#list.select > li.select > .param > .saveImage                .server_info i:first-of-type:before   { content:"\f1c0"; }
+#list.select > li.select > .param > .saveImage                .server_info i:last-of-type:before    { content:"\f1c5"; }
+#list.select > li.select > .param > .saveImage                .server_info .disk_space:before       { content:"Disk space:"; }
+#list.select > li.select > .param > .saveImage                .server_info .file_count:before       { content:"File count:"; }
+#list.select > li.select > .param > .saveVideo                > label                               { vertical-align:88px; }
+#list.select > li.select > .param > .saveVideo                > label:after                         { content:"Save Movie"; }
+#list.select > li.select > .param > .saveVideo                > label      i:before                 { content:"\f03d"; }
+#list.select > li.select > .param > .saveVideo                .input_area                           { display:inline-block; width:45%; padding-top:8px; }
+#list.select > li.select > .param > .saveVideo                .input_area  > *                      { width:100%; }
+#list.select > li.select > .param > .saveVideo                .input_area  label                    { text-align:center; }
+#list.select > li.select > .param > .saveVideo                .input_area  select                   { margin-top:0; }
+#list.select > li.select > .param > .saveVideo                .input_area  select.disabled          { pointer-events:none; opacity:0.5; }
+#list.select > li.select > .param > .saveVideo                .input_area  .saveVideoInterval:after { content:"Interval"; }
+#list.select > li.select > .param > .saveVideo                .input_area  .saveVideoDuration:after { content:"Duration"; }
+#list.select > li.select > .param > .saveVideo                .input_area  .saveVideo:after         { content:"Save"; }
+#list.select > li.select > .param > .saveVideo                .video_files                          { margin:8px 0; }
+#list.select > li.select > .param > .saveVideo                .video_files span                     { display:inline-block; width:95%; line-height:20px; text-align:center; padding:5px 0px; border-radius:30px; font-size:12px; color:#fff; background:#888; cursor:pointer; -webkit-tap-highlight-color:rgba(0,0,0,0); }
+#list.select > li.select > .param > .saveVideo                .video_files span:active              { color:#ccc; }
+#list.select > li.select > .param > .saveVideo                .video_files span:after               { content:"Select Movie"; }
+#list.select > li.select > .param > .saveVideo                .video_files i:before                 { content:"\f1c8"; }
+#list.select > li.select > .param > .saveVideo                .video_files span.disabled            { color:#888; background:none; cursor:default; pointer-events:none; }
+#list.select > li.select > .param > .saveVideo                .server_info                          { font-size:11px; text-align:left; margin:0 0 5px 30px; }
+#list.select > li.select > .param > .saveVideo                .server_info span                     { padding-right:15px; }
+#list.select > li.select > .param > .saveVideo                .server_info span.alert               { color:red; }
+#list.select > li.select > .param > .saveVideo                .server_info i:first-of-type:before   { content:"\f1c0"; }
+#list.select > li.select > .param > .saveVideo                .server_info i:last-of-type:before    { content:"\f1c8"; }
+#list.select > li.select > .param > .saveVideo                .server_info .disk_space:before       { content:"Disk space:"; }
+#list.select > li.select > .param > .saveVideo                .server_info .file_count:before       { content:"File count:"; }
+#list.select > li.select > .param > .connect                  label:after                           { content:"Send Movie"; }
+#list.select > li.select > .param > .connect                  i:before                              { content:"\f03d"; }
+#list.select > li.select > .param > .adaptiveControl          label:after                           { content:"Adaptive Control"; }
+#list.select > li.select > .param > .adaptiveControl          i:before                              { content:"\f03d"; }
+#list.select > li.select > .param > .fecLevel                 label:after                           { content:"FEC level"; }
+#list.select > li.select > .param > .fecLevel                 i:before                              { content:"\f03d"; }
+#list.select > li.select > .param > .heartBeat                label:after                           { content:"Heart beat"; }
+#list.select > li.select > .param > .heartBeat                i:before                              { content:"\f03d"; }
+#list.select > li.select > .param > .delay                    label:after                           { content:"Delay time"; }
+#list.select > li.select > .param > .delay                    i:before                              { content:"\f03d"; }
+#list.select > li.select > .param > .delay.disconnect         select                                { display:none; }
+#list.select > li.select > .param > .delay.disconnect:after                                         { content:"Receiver disconnect"; display:inline-block; width:45%; line-height:20px; margin:8px 0; font-size:12px; color:#f00; text-align:left; text-indent:10px; white-space:nowrap; }
+#list.select > li.select > .param > .display                  label:after                           { content:"Status"; }
+#list.select > li.select > .param > .display                  i:before                              { content:"\f03d"; }
+#list.select > li.select > .param > .display.disconnect       select                                { display:none; }
+#list.select > li.select > .param > .display.disconnect:after                                       { content:"Receiver disconnect"; display:inline-block; width:45%; line-height:20px; margin:8px 0; font-size:12px; color:#f00; text-align:left; text-indent:10px; white-space:nowrap; }
+
+#list.select > li.select > .param > .resolution               label:after                           { content:"Resolution"; }
+#list.select > li.select > .param > .resolution               i:before                              { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select > .param > .rotation                 label:after                           { content:"Rotation"; }
+#list.select > li.select > .param > .rotation                 i:before                              { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select > .param > .flip                     label:after                           { content:"Flip"; }
+#list.select > li.select > .param > .flip                     i:before                              { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select > .param > .quality                  label:after                           { content:"Quality"; }
+#list.select > li.select > .param > .quality                  i:before                              { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select > .param > .bps                      label:after                           { content:"Bitrate"; }
+#list.select > li.select > .param > .bps                      i:before                              { content:"\f03d"; }
+#list.select > li.select > .param > .fps                      label:after                           { content:"Frame rate"; }
+#list.select > li.select > .param > .fps                      i:before                              { content:"\f03d"; }
+
+#list.select > li.select > .param > .effect:after                                                   { content:"Camera Effects"; }
+#list.select > li.select > .param > .effect                   i:before                              { content:"\f0d0"; }
+#list.select > li.select > .param > .sharpness                label:after                           { content:"Sharpness"; }
+#list.select > li.select > .param > .sharpness                i:before                              { content:"\f06e"; }
+#list.select > li.select > .param > .contrast                 label:after                           { content:"Contrast"; }
+#list.select > li.select > .param > .contrast                 i:before                              { content:"\f06e"; }
+#list.select > li.select > .param > .brightness               label:after                           { content:"Brightness"; }
+#list.select > li.select > .param > .brightness               i:before                              { content:"\f06e"; }
+#list.select > li.select > .param > .saturation               label:after                           { content:"Saturation"; }
+#list.select > li.select > .param > .saturation               i:before                              { content:"\f06e"; }
+#list.select > li.select > .param > .iso                      label:after                           { content:"ISO"; }
+#list.select > li.select > .param > .iso                      i:before                              { content:"\f06e"; }
+#list.select > li.select > .param > .exposureMode             label:after                           { content:"Exposure Mode"; }
+#list.select > li.select > .param > .exposureMode             i:before                              { content:"\f06e"; }
+#list.select > li.select > .param > .whiteBalance             label:after                           { content:"White Balance"; }
+#list.select > li.select > .param > .whiteBalance             i:before                              { content:"\f06e"; }
+#list.select > li.select > .param > .meteringMode             label:after                           { content:"Metering Mode"; }
+#list.select > li.select > .param > .meteringMode             i:before                              { content:"\f06e"; }
+
+#list.select > li.select > .param > .reboot                   span                                  { line-height:50px; padding:7px 20px; border-radius:30px; font-size:12px; color:#fff; background:#888; cursor:pointer; -webkit-tap-highlight-color:rgba(0,0,0,0); }
+#list.select > li.select > .param > .reboot                   span:active                           { color:#ccc; }
+#list.select > li.select > .param > .reboot                   span:after                            { content:"Reboot"; }
+#list.select > li.select > .param > .reboot                   span          i:before                { content:"\f021"; }
+
+#list.select > li.select > .param > .reset                    span                                  { line-height:50px; padding:7px 20px; border-radius:30px; font-size:12px; color:#fff; background:#888; cursor:pointer; -webkit-tap-highlight-color:rgba(0,0,0,0); }
+#list.select > li.select > .param > .reset                    span:active                           { color:#ccc; }
+#list.select > li.select > .param > .reset                    span:after                            { content:"Reset"; }
+#list.select > li.select > .param > .reset                    span          i:before                { content:"\f021"; }
+#list.select > li.select > .param > .reset                    span.disabled                         { color:#888; background:none; cursor:default; pointer-events:none; }
+
+#list.select > li.select > .param > .history                                                        { color:#fff; }
+#list.select > li.select > .param > .history:after                                                  { content:"Preview"; }
+#list.select > li.select > .param > .history                  i:before                              { content:"\f1da"; }
+#list.select > li.select > .param > .history_button                                                 { display:flex; flex-wrap:wrap; justify-content:center; max-width:300px; margin:auto; padding:5px 0px; border-bottom:none; }
+#list.select > li.select > .param > .history_button           a                                     { margin:5px 10px; padding:8px 0px; border-radius:30px; font-size:11px; color:#fff; background:#888; text-decoration:none; -webkit-tap-highlight-color:rgba(0,0,0,0); }
+#list.select > li.select > .param > .history_button           a:active                              { color:#ccc; }
+#list.select > li.select > .param > .history_button           a.disabled                            { visibility:hidden; pointer-events:none; }
+#list.select > li.select > .param > .history_button           .history_picture                      { flex-basis:100%; }
+#list.select > li.select > .param > .history_button           .history_picture:after                { content:"Picture"; }
+#list.select > li.select > .param > .history_button           .history_picture          i:before    { content:"\f03e"; }
+#list.select > li.select > .param > .history_button           .history_video                        { flex-basis:50%; }
+#list.select > li.select > .param > .history_button           .history_video:after                  { content:"Movie"; }
+#list.select > li.select > .param > .history_button           .history_video            i:before    { content:"\f03d"; }
+#list.select > li.select > .param > .history_button           .history_cut_video                    { flex-basis:30%; }
+#list.select > li.select > .param > .history_button           .history_cut_video:after              { content:"Frames"; }
+#list.select > li.select > .param > .history_button           .history_cut_video        i:before    { content:"\f03e"; }
+#list.select > li.select > .param > .history_button           .history_time_lapse                   { flex-basis:100%; }
+#list.select > li.select > .param > .history_button           .history_time_lapse:after             { content:"TimeLapse"; }
+#list.select > li.select > .param > .history_button           .history_time_lapse       i:before    { content:"\f03d"; }
+
+#list.select > li.select > .param > .view_url                                                       { position:fixed; top:0px; right:0px; padding:0; border:none; z-index:99999; cursor:pointer; }
+#list.select > li.select > .param > .view_url:before                                                { display:block; width:60px; height:55px; line-height:55px; font-size:22px; color:#9a9a9a; content:"\f0c1"; }
+#list.select > li.select > .param > .view_url:active                                                { opacity:0.5; }
+#list.select > li.select > .param > .list                                                           { position:fixed; top:0px; left :0px; width:60px; height:55px; background:url(../img/ic_back.svg) no-repeat center; background-size:18px 18px; -webkit-background-size:18px 18px; border:none; z-index:99999; cursor:pointer; }
+#list.select > li.select > .param > .list:active                                                    { opacity:0.5; }
+
+#list.select > li.select[camera_type="sdicamera"] > .param > .zoom label:after { content:"Zoom"; }
+#list.select > li.select[camera_type="sdicamera"] > .param > .zoom i:before    { content:"\f03e\00a0\00a0\f03d"; }
+
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusMode               > label:after             { content:"Focus Mode"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusMode               > label       i:before    { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusSpeed.disabled                               { opacity:0.5; pointer-events:none; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusSpeed              > label:after             { content:"Focus Speed"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusSpeed              > label       i:before    { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit.disabled                           { opacity:0.5; pointer-events:none; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit          > label                   { vertical-align:10px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit          > label:after             { content:"Focus Near"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit          > label       i:before    { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit          > div                     { display:inline-block; width:45%; margin:8px 0; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit          > div       > *           { width:100%; text-align:center; margin:0; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit          > div       > label:after { content:"m"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit.disabled                            { opacity:0.5; pointer-events:none; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit           > label                   { vertical-align:10px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit           > label:after             { content:"Focus Far"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit           > label       i:before    { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit           > div                     { display:inline-block; width:45%; margin:8px 0; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit           > div       > *           { width:100%; text-align:center; margin:0; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit           > div       > label:after { content:"m"; }
+
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > label                                                  { vertical-align:81px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > label:after                                            { content:"Pan Tilt"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > label         i:before                                 { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div                                                    { display:inline-block; width:45%; padding-top:8px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div         > *                                        { width:100%; text-align:center; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button                                   { padding:0; color:inherit; background:none; border:none; outline:none; cursor:pointer; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button                          i        { padding:0; font-size:24px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltUpLeft"   ] i        { transform:rotate(-45deg); }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltUpLeft"   ] i:before { content:"\f0aa"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltUp"       ] i:before { content:"\f0aa"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltUpRight"  ] i:before { content:"\f0aa"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltUpRight"  ] i        { transform:rotate(45deg); }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltLeft"     ] i:before { content:"\f0a8"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltRight"    ] i:before { content:"\f0a9"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltDownLeft" ] i        { transform:rotate(45deg); }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltDownLeft" ] i:before { content:"\f0ab"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltDown"     ] i:before { content:"\f0ab"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltDownRight"] i:before { content:"\f0ab"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           button[name="panTiltDownRight"] i        { transform:rotate(-45deg); }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           label.panTiltSpeed:before                { content:"Speed ("; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           label.panTiltSpeed:after                 { content:")"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           label.panTiltTime:before                 { content:"Time ("; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           label.panTiltTime:after                  { content:"sec)"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .panTilt > div           input[type="range"]                      { margin-top:0; }
+
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > label                                         { vertical-align:52px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > label:after                                   { content:"Zoom"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > label         i:before                        { content:"\f03e\00a0\00a0\f03d"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div                                           { display:inline-block; width:45%; padding-top:8px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div         > *                               { width:100%; text-align:center; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           button                          { padding:0; color:inherit; background:none; border:none; outline:none; cursor:pointer; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           button                 i        { padding:0; font-size:24px; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           button[name="zoomOut"] i:before { content:"\f056"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           button[name="zoomIn" ] i:before { content:"\f055"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           label.zoomSpeed:before          { content:"Speed ("; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           label.zoomSpeed:after           { content:")"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           label.zoomTime:before           { content:"Time ("; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           label.zoomTime:after            { content:"sec)"; }
+#list.select > li.select[camera_type="ipcamera"] > .param > .zoom > div           input[type="range"]             { margin-top:0; }
+
+#list.select > li.select:not([solution_type*="video"]) > .param > .connect         { display:none; }
+#list.select > li.select:not([solution_type*="video"]) > .param > .adaptiveControl { display:none; }
+#list.select > li.select:not([solution_type*="video"]) > .param > .fecLevel        { display:none; }
+#list.select > li.select:not([solution_type*="video"]) > .param > .heartBeat       { display:none; }
+#list.select > li.select:not([solution_type*="video"]) > .param > .delay           { display:none; }
+#list.select > li.select:not([solution_type*="video"]) > .param > .display         { display:none; }
+
+#list.select > li.change    > .param                                          { color:#888; }
+#list.select > li.change    > .param   select                                 { opacity:0.5; pointer-events:none; }
+#list.select > li.change    > .param   input                                  { opacity:0.5; pointer-events:none; }
+
+#list.select > li.stoped    > .image > .caption > i                           { color:#d0011b; }
+#list.select > li.stoped    > .image > .date                                  { color:#ccc; }
+#list.select > li.stoped    > .image > .tab     > *                    > span { color:#888!important; background:none!important; cursor:auto!important; }
+
+#list.select > li.stoped    > .param                                          { color:#888; }
+#list.select > li.stoped    > .param > .saveVideo   .video_files span         { color:#888; background:none; pointer-events:none; }
+#list.select > li.stoped    > .param > .reboot                                { pointer-events:none; }
+#list.select > li.stoped    > .param > .reboot       span                     { color:#888; background:none; }
+#list.select > li.stoped    > .param > .reset                                 { pointer-events:none; }
+#list.select > li.stoped    > .param > .reset        span                     { color:#888; background:none; }
+
+#list.select > li.disabled  > .image > .caption > i                           { color:#ccc; }
+#list.select > li.disabled  > .image > .caption > i:first-child:before        { background-image:url(../img/wifi_off.svg); background-size:18px; -webkit-background-size:18px; }
+#list.select > li.disabled2 > .image > .caption > i:first-child:before        { color:#d0011b; background:none; }
+#list.select > li.disabled  > .image > .date                                  { color:#ccc; }
+#list.select > li.disabled  > .image > .tab     > *                    > span { color:#888!important; background:none!important; cursor:auto!important; }
+
+#list.select > li.disabled  > .param                                          { color:#888; }
+#list.select > li.disabled  > .param > .saveVideo   .video_files span         { color:#888; background:none; pointer-events:none; }
+#list.select > li.disabled  > .param > .reboot                                { pointer-events:none; }
+#list.select > li.disabled  > .param > .reboot       span                     { color:#888; background:none; }
+#list.select > li.disabled  > .param > .reset                                 { pointer-events:none; }
+#list.select > li.disabled  > .param > .reset        span                     { color:#888; background:none; }
+
+#list.select > li.disabled[camera_type="ipcamera"] > .param > .panTilt input  { pointer-events:none; opacity:0.5; }
+#list.select > li.disabled[camera_type="ipcamera"] > .param > .panTilt button { pointer-events:none; }
+#list.select > li.disabled[camera_type="ipcamera"] > .param > .zoom    input  { pointer-events:none; opacity:0.5; }
+#list.select > li.disabled[camera_type="ipcamera"] > .param > .zoom    button { pointer-events:none; }
+
+#list.select > li[aspect_ratio="1.3"] > .image > .view_area > img { width:75%; }
+#list.select > li[aspect_ratio="1.5"] > .image > .view_area > img { width:84%; }
+
+#dialog_result       .dialog_frame         { display:none; }
+#dialog_result.error .dialog_frame         { display:block; width:40%; }
+#dialog_result.error .dialog_body          { font-size:15px; color:red; text-align:center; margin:10% 0 10% 0; }
+#dialog_result.error .dialog_body:after    { content:" error." }
+#dialog_result.error .dialog_body i:after  { content:"\f071" }
+#dialog_result.error .dialog_button_ok     { border-right:none; }
+#dialog_result.error .dialog_button_cancel { display:none; }
+
+#dialog_change .dialog_frame            { width:40%; }
+#dialog_change .dialog_body             { font-size:15px; color:dodgerblue; text-align:center; margin:10% 0 10% 0; }
+#dialog_change .dialog_body:after       { content:"Parameter changed by system." }
+#dialog_change .dialog_body i:after     { content:"\f021" }
+#dialog_change .dialog_button_ok        { border-right:none; }
+#dialog_change .dialog_button_ok:before { content:"CLOSE"; }
+#dialog_change .dialog_button_cancel    { display:none; }
+
+#dialog_save_video_param_error .dialog_frame         { width:40%; }
+#dialog_save_video_param_error .dialog_body          { font-size:15px; color:red; text-align:center; margin:10% 0 10% 0; }
+#dialog_save_video_param_error .dialog_body:after    { content:"Save Movie Interval or Duration Parameter error." }
+#dialog_save_video_param_error .dialog_body i:after  { content:"\f071" }
+#dialog_save_video_param_error .dialog_button_ok     { border-right:none; }
+#dialog_save_video_param_error .dialog_button_cancel { display:none; }
+
+#dialog_video_files                     .dialog_frame                                                { width:40%; height:400px; }
+#dialog_video_files[status            ] .dialog_button_ok                                            { color:#ccc; pointer-events:none; }
+#dialog_video_files[status            ] .dialog_body:before                                          { display:block; text-align:center; margin-top:20px; }
+#dialog_video_files[status="loading"  ] .dialog_body:before                                          { content:"Please wait a moment."; }
+#dialog_video_files[status="not_found"] .dialog_body:before                                          { content:"There is no file yet."; }
+#dialog_video_files                     .dialog_body             ul                                  { list-style-type:none; margin:0; padding:0; text-align:center; }
+#dialog_video_files                     .dialog_body             li                                  { display:flex; align-items:center; margin-bottom:2px; background:#eee; cursor:pointer; }
+#dialog_video_files                     .dialog_body             li:hover                            { background:#ccc;       color:#222; transition:0.3s; }
+#dialog_video_files                     .dialog_body             li.select                           { background:dodgerblue; color:#fff; transition:0.3s; }
+#dialog_video_files                     .dialog_body             li        > span:first-child        { flex-grow:1; line-height:40px; }
+#dialog_video_files                     .dialog_body             li        > span:last-child         { width:40%; max-width:200px; margin-bottom:-4px; position:relative; }
+#dialog_video_files                     .dialog_body             li        > span.no_image:after     { content:"No Image"; position:absolute; left:0px; top:0px; right:0px; bottom:0px; width:5em; height:1em; margin:auto; color:#fff; }
+#dialog_video_files                     .dialog_body             li        > span                img { width:100%; background:#aaa; }
+
+#dialog_reboot .dialog_frame        { width:40%; }
+#dialog_reboot .dialog_body         { font-size:15px; color:dodgerblue; text-align:center; margin:10% 0 10% 0; }
+#dialog_reboot .dialog_body:after   { content:"Reboot Camera ?" }
+#dialog_reboot .dialog_body i:after { content:"\f021" }
+
+#dialog_reset .dialog_frame        { width:40%; }
+#dialog_reset .dialog_body         { font-size:15px; color:dodgerblue; text-align:center; margin:10% 0 10% 0; }
+#dialog_reset .dialog_body:after   { content:"Reset Parameter ?" }
+#dialog_reset .dialog_body i:after { content:"\f021" }
+
+#dialog_view_url .dialog_frame            { height:100px; }
+#dialog_view_url .dialog_body             { word-break:break-all; }
+#dialog_view_url .dialog_body          *  { -moz-user-select:text; -khtml-user-select:text; -webkit-user-select:text; -ms-user-select:text; user-select:text; }
+#dialog_view_url .dialog_button_ok        { border-right:none; }
+#dialog_view_url .dialog_button_ok:before { content:"CLOSE"; }
+#dialog_view_url .dialog_button_cancel    { display:none; }
+
+.blinking > *            { animation:blink 0.5s ease-in-out infinite alternate; -webkit-animation:blink 0.5s ease-in-out infinite alternate; -moz-animation:blink 0.5s ease-in-out infinite alternate; }
+@-webkit-keyframes blink { 0% { opacity:0; } 100% { opacity:0.5; } }
+   @-moz-keyframes blink { 0% { opacity:0; } 100% { opacity:0.5; } }
+        @keyframes blink { 0% { opacity:0; } 100% { opacity:0.5; } }
+
+@media screen and (max-width:1200px)
+{
+  #list.select > li.select > .image        { width:76%; }
+  #list.select > li.select > .image > .tab { width:24%; }
+  #list.select > li.select > .param        { width:24%; }
+}
+
+@media screen and (max-width:1080px)
+{
+  #list        > li                        { width:23.5%; }
+  #list.select > li.select > .image        { width:70%; }
+  #list.select > li.select > .image > .tab { width:30%; }
+  #list.select > li.select > .param        { width:30%; }
+}
+
+@media screen and (max-width:768px)
+{
+  #list        > li                        { width:32%; }
+  #list.cols4  > li                        { width:32%; }
+  #list.select > li.select > .image        { width:64%; }
+  #list.select > li.select > .image > .tab { width:36%; }
+  #list.select > li.select > .param        { width:36%; }
+
+  #dialog_video_files .dialog_frame        { width:80%; }
+  #dialog_reboot      .dialog_frame        { width:60%; }
+  #dialog_reset       .dialog_frame        { width:60%; }
+}
+
+@media screen and (max-width:640px)
+{
+   body.select                                                       { background:rgb(245,245,245); }
+  #list.select > li.select                                           { background:rgb(245,245,245); }
+  #list.select > li.select > .image                                  { width:100%; height:auto; }
+  #list.select > li.select > .image > .date                          { border-bottom:solid 1px #ddd; }
+  #list.select > li.select > .image > .tab                           { position:static; width:100%; background:#fff; border-bottom:solid 1px #ddd; }
+  #list.select > li.select > .image > .tab > .picture                { height:70px; }
+  #list.select > li.select > .image > .tab > .video                  { height:70px; }
+  #list.select > li.select > .image > .tab > *         > span        { line-height:70px; padding:10px 30px; font-size:15px; color:#ccc; }
+  #list.select > li.select > .image > .tab > *         > span.select { background:#333; }
+
+  #list.select > li.select[solution_type*="rtmp"].distribution > .image > .tab > *:not(.disabled) > span:not(.select)       { color:#555; }
+  #list.select > li.select[solution_type*="rtmp"].distribution > .image > .tab > *:not(.disabled) > span:not(.select):hover { color:#333; }
+
+  #list.select > li.select > .param                                                        { width:100%; position:static; margin-top:75%; background:rgb(245,245,245); color:#555; }
+  #list.select > li.select > .param h2                                                     { font-size:17px; padding:20px 0; }
+  #list.select > li.select > .param label                                                  { font-size:14px; width:40%; }
+  #list.select > li.select > .param select                                                 { font-size:18px; width:55%; height:40px; margin:10px 0; text-indent:20px; }
+  #list.select > li.select > .param input[type="range"]                                    { font-size:18px; width:55%; height:40px; margin:10px 0; text-indent:20px; }
+  #list.select > li.select > .param > *                                                    { border-bottom:solid 1px #ddd; }
+  #list.select > li.select > .param > .saveImage                .server_info               { font-size:15px; }
+  #list.select > li.select > .param > .saveVideo                > label                    { vertical-align:125px; }
+  #list.select > li.select > .param > .saveVideo                .input_area                { width:55%; padding-top:10px; }
+  #list.select > li.select > .param > .saveVideo                .server_info               { font-size:15px; }
+  #list.select > li.select > .param > .saveVideo                .video_files               { margin:10px 0; }
+  #list.select > li.select > .param > .saveVideo                .video_files span          { padding:8px 0px; font-size:15px; background:#333; }
+  #list.select > li.select > .param > .saveVideo                .video_files span.disabled { color:#ccc; }
+  #list.select > li.select > .param > .delay.disconnect:after                              { width:55%; line-height:40px; margin:10px 0; font-size:18px; text-indent:20px; }
+  #list.select > li.select > .param > .display.disconnect:after                            { width:55%; line-height:40px; margin:10px 0; font-size:18px; text-indent:20px; }
+  #list.select > li.select > .param > .reboot                   span                       { line-height:70px; padding:12px 30px; font-size:15px; background:#333; }
+  #list.select > li.select > .param > .reset                    span                       { line-height:70px; padding:12px 30px; font-size:15px; background:#333; }
+  #list.select > li.select > .param > .reset                    span.disabled              { color:#ccc; }
+  #list.select > li.select > .param > .history                                             { color:#555; }
+  #list.select > li.select > .param > .history_button                                      { max-width:320px; }
+  #list.select > li.select > .param > .history_button           a                          { padding:12px 0px; font-size:15px; background:#333; }
+
+  #list.select > li.select[camera_type="ipcamera"] > .param > .focusNearLimit > div          { width:55%; margin:10px 0; }
+  #list.select > li.select[camera_type="ipcamera"] > .param > .focusFarLimit  > div          { width:55%; margin:10px 0; }
+  #list.select > li.select[camera_type="ipcamera"] > .param > .panTilt        > label        { vertical-align:111px; }
+  #list.select > li.select[camera_type="ipcamera"] > .param > .panTilt        > div          { width:55%; padding-top:10px; }
+  #list.select > li.select[camera_type="ipcamera"] > .param > .panTilt        > div button i { font-size:32px; }
+  #list.select > li.select[camera_type="ipcamera"] > .param > .zoom           > label        { vertical-align:75px; }
+  #list.select > li.select[camera_type="ipcamera"] > .param > .zoom           > div          { width:55%; padding-top:10px; }
+  #list.select > li.select[camera_type="ipcamera"] > .param > .zoom           > div button i { font-size:32px; }
+
+  #list.select > li.stoped   > .image > .tab > * > span { color:#ccc!important; }
+
+  #list.select > li.stoped   > .param                                   { color:#ccc; }
+  #list.select > li.stoped   > .param > .saveVideo    .video_files span { color:#ccc; background:none; }
+  #list.select > li.stoped   > .param > .reboot       span              { color:#ccc; background:none; }
+  #list.select > li.stoped   > .param > .reset        span              { color:#ccc; background:none; }
+
+  #list.select > li.disabled > .image > .tab > * > span { color:#ccc!important; }
+
+  #list.select > li.disabled > .param                                   { color:#ccc; }
+  #list.select > li.disabled > .param > .saveVideo    .video_files span { color:#ccc; background:none; }
+  #list.select > li.disabled > .param > .reboot       span              { color:#ccc; background:none; }
+  #list.select > li.disabled > .param > .reset        span              { color:#ccc; background:none; }
+}
+
+@media screen and (max-width:620px)
+{
+  #select_cols                      { display:none; }
+  #list        > li                 { width:47%; }
+  #list.cols3  > li                 { width:47%; }
+  #list.cols4  > li                 { width:47%; }
+  #list.select > li.select > .param { margin-top:85%; }
+}
+
+@media screen and (max-width:375px)
+{
+  #list        > li                 { width:96%; }
+  #list.cols2  > li                 { width:96%; }
+  #list.cols3  > li                 { width:96%; }
+  #list.cols4  > li                 { width:96%; }
+  #list.select > li.select > .param { margin-top:88%; }
+}
+
+@media screen and (max-width:320px)
+{
+  #list.select > li.select > .param { margin-top:93%; }
+}

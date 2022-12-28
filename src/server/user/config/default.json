@@ -1,0 +1,5 @@
+{
+  "port"             : 8081,
+  "server"           : { "url":"http://xxx.xxxxx.xx.xx/ui", "folder":"/hpvt/project/admin", "authorization":"user:password" },
+  "webSocketTimeout" : 20000
+}

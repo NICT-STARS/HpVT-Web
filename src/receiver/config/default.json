@@ -1,0 +1,7 @@
+{
+  "server"            : { "url":"http://xxx.xxxxx.xx.xx/receiver", "folder":"/hpvt/project/admin", "authorization":"user:password" },
+  "showStatusCommand" : "/opt/ssc/bin/vrctrl --debug-on",
+  "hideStatusCommand" : "/opt/ssc/bin/vrctrl --debug-off",
+  "setDelayCommand"   : "/opt/ssc/bin/vrctrl -delay %delay",
+  "getStatusCommand"  : "/opt/ssc/bin/vrctrl -get"
+}

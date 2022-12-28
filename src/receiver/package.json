@@ -1,0 +1,16 @@
+{
+  "name": "raspberry_pi_camera_receiver_client",
+  "version": "2.0.1",
+  "description": "Raspberry Pi Camera Receiver Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "inoue computer service",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.0.1",
+    "http-proxy-agent": "^2.1.0",
+    "socket.io-client": "2.1.1"
+  }
+}

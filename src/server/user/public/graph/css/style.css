@@ -1,0 +1,397 @@
+@charset &quot;UTF-8&quot;;
+
+a,
+a:active,
+a:visited {
+    color: steelblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: steelblue;
+}
+
+a.active {
+    background-color: steelblue;
+    border: 0;
+    border-radius: 24px;
+    color: #fff;
+    padding: 2px 8px 2px 8px;
+    text-decoration: none;
+}
+
+a.examples-options.selected {
+    font-weight: bold;
+}
+
+a:hover.examples-options {
+    text-decoration: none;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'Open Sans', sans-serif, Arial;
+}
+
+.btn-group {
+    display: inline-block;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.btn-group span.which-button {
+    font-weight: 300;
+    color: darkgray;
+}
+
+.btn-group span.title {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+/*none style*/
+/*button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+}*/
+
+.data-column {
+    font-size: 0.9rem;
+    margin: 0;
+    position: absolute;
+    right: 0;
+}
+
+#description {
+    margin: auto;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.divider {
+    color: #000000;
+    opacity: 0.2;
+}
+
+.examples-options {
+    font-size: 0.8rem;
+}
+
+.float-right {
+    float: right;
+}
+
+.footer {
+    font-size: 0.9rem;
+    padding: 40px;
+    text-align: center;
+}
+
+.head {
+    color: black;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.head h1 {
+    font-size: 4.1rem;
+    font-weight: 300;
+    margin: 45px 0 0 0;
+}
+
+ul {
+    clear: both;
+    font-size: 1.2rem;
+    padding: 10px 0 0 0;
+}
+
+.head ul li,
+ul.examples li {
+    display: inline;
+    list-style: none;
+    padding-right: 15px;
+}
+
+ul li.no-padding {
+    padding: 0;
+}
+
+ul.examples li {
+    line-height: 30px;
+}
+
+html {
+    font-size: 12px;
+}
+
+.legend {
+    font-size: 0.9rem;
+    padding: 25px 0 15px 0;
+}
+
+#logo {
+    margin: 60px 0 30px 0;
+    height: 79px;
+    width: 400px;
+}
+
+p {
+    font-family: 'PT Serif', serif;
+    font-size: 1.3rem;
+    line-height: 24px;
+}
+
+.pill {
+    font-family: 'Open Sans', serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.pill:hover {
+    text-decoration: none;
+}
+
+pre {
+    background-color: transparent;
+    border: 0;
+    border-left: 2px solid #ccc;
+    border-radius: 0;
+    font-size: 0.9rem;
+    margin: 40px 0 0 10px;
+    overflow-x: auto;
+    padding: 0;
+    width: 100%;
+    word-wrap: normal;
+}
+
+pre code {
+    white-space: inherit;
+}
+
+pre code.hljs {
+    background-color: transparent;
+}
+
+pre, code, text-area {
+    font-family: "Menlo", monospace;
+}
+
+svg {
+    /*margin-top: 30px; 2017/10/11 切ります。*/
+}
+
+#table1 .chart_title {
+    margin-left: 0;
+}
+
+#torso {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+#torso div {
+    display: inline-block;
+}
+
+#trunk {
+    margin-top: 40px;
+}
+
+#trunk h2 {
+    font-size: 1.2rem;
+}
+
+#trunk h2.trunk-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+
+.trunk-section {
+    border-top: 1px solid #ccc;
+    padding-bottom: 25px;
+    padding-top: 15px;
+}
+
+.wip {
+    background-color: #f1f1f1;
+    font-size: 1.3rem;
+    margin-top: 60px;
+    padding: 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    opacity: 0.8;
+}
+
+/*mg-main-line*/
+path.mg-main-line {
+    stroke-width: 2.0px;
+}
+
+/*.mg-baselines ベースライン*/
+line#eg-b1line {
+    stroke: red;
+    stroke-width: 1.5px;
+    stroke-dasharray: 5px;
+}
+text#eg-b1text {
+    fill: red;
+    font-size: 1.0rem;
+    opacity: 0.9;
+    text-anchor: start;
+    dominant-baseline: text-after-edge;
+}
+line#eg-b2line {
+    stroke: orange;
+    stroke-width: 1.5px;
+    stroke-dasharray: 5px;
+}
+text#eg-b2text {
+    fill: orange;
+    font-size: 1.0rem;
+    opacity: 0.9;
+    text-anchor: start;
+    dominant-baseline: middle;
+}
+line#eg-b3line {
+    stroke: yellow;
+    stroke-width: 1.5px;
+    stroke-dasharray: 5px;
+}
+text#eg-b3text {
+    fill: yellow;
+    font-size: 1.0rem;
+    opacity: 0.9;
+    text-anchor: start;
+    dominant-baseline: middle;
+}
+line#eg-b4line {
+    stroke: mediumseagreen;
+    stroke-width: 1.5px;
+    stroke-dasharray: 5px;
+}
+text#eg-b4text {
+    fill: mediumseagreen;
+    font-size: 1.0rem;
+    opacity: 0.9;
+    text-anchor: start;
+    dominant-baseline: middle;
+}
+
+/*ベースラインとそのラベル*/
+text#eg-b1line {
+    /*fill: red;効かない*/
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: red;
+}
+text#eg-b2line {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: orange;
+}
+text#eg-b3line {
+    font-size: 1.3rem;
+    font-weight: bold;
+    /*text-shadow: 1px 1px 2px #000;*/
+    color: yellow;
+}
+text#eg-b4line {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: mediumseagreen;
+}
+
+/*凡例のスタイル*/
+.eg-blevel{
+    font-size: 1.0rem;
+    opacity: 0.9;
+    list-style: none;
+}
+
+/*軸のテキストのサイズをあげる*/
+.mg-x-axis text,
+.mg-y-axis text {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+/*アクティブポイントの色とサイズを変更*/
+.mg-active-datapoint {
+    fill: black;
+    font-size: 0.9rem;
+    dominant-baseline: text-before-edge;
+    baseline-shift: -8;
+}
+/*マーカーのテキストのサイズをあげ、配置を中央*/
+.mg-markers text {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    text-anchor: middle;
+    dominant-baseline: text-after-edge;
+}
+
+/*グラフ、ボタン、凡例を横並びにする*/
+.flex{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;    
+}
+.box {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0px;
+    padding:0px;
+}
+.box-graph{
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    width: 380px;
+}
+.box-button {
+    -webkit-flex-basis: 50px;
+    flex-basis: 50px;
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+}
+.box-legend {
+    -webkit-flex-basis: 210px;
+    flex-basis: 210px;
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+}
+
+/*幅640px以下のスタイルの定義*/
+@media screen and (max-width:640px){
+/*グラフ、ボタン横並び、凡例を下に配置する*/
+.box-graph {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    width: 100px;
+}
+.box-button {
+    /*width: 80px;*/
+    -webkit-flex-basis: 50px;
+    flex-basis: 50px;
+    -webkit-flex-grow: 0;
+    flex-grow: 0;
+}
+.box-legend {
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+}
+}

@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Index of {directory}</title>
+<style>
+  #files            { list-style:none; font-family:monospace; margin:0; padding:0; }
+  #files .header    { display:none; }
+  #files span       { display:inline-block; }
+  #files .name      { width:50%; text-decoration:underline; }
+  #files .size      { width:10%; color:#000; }
+  #files .date      { width:40%; color:#000; }
+</style>
+<script>
+  function $(id)
+  {
+    var el = 'string' == typeof id ? document.getElementById(id) : id;
+
+    el.on = function(event, fn)
+    {
+       if ('content loaded' == event) event = window.attachEvent ? "load" : "DOMContentLoaded";
+       el.addEventListener ? el.addEventListener(event, fn, false) : el.attachEvent("on" + event, fn);
+    };
+
+    el.all  = function(selector) { return $(el.querySelectorAll(selector)); };
+    el.each = function(fn)       { for (var i = 0, len = el.length; i < len; ++i) fn($(el[i]), i); };
+
+    return el;
+  }
+
+  $(window).on('content loaded', function()
+  {
+    document.title      = 'Index of ' + location.pathname;
+    $('h1').textContent = 'Index of ' + location.pathname;
+
+    var links = $('files').all('a');
+
+    links.each(function(link)
+    {
+                                                           link.setAttribute('href', link.getAttribute('href').replace(/\/.+\//, ''));
+      if (link.getAttribute('href' ).indexOf('.') == -1  ) link.setAttribute('href', link.getAttribute('href') + '/');
+      if (link.getAttribute('title')              == '..') link.setAttribute('href', '..');
+    });
+  });
+</script>
+</head>
+<body bgcolor="white">
+<h1 id="h1">Index of {directory}</h1>
+<hr>
+{files}
+<hr>
+</body>
+</html>

@@ -1,0 +1,44 @@
+.nict-raspberry-pi-calendar      { position:fixed;    top:0; left:0; width:100%; height:100vh; z-index:99999; display:none; }
+.nict-raspberry-pi-calendar.open { display:block; }
+
+.nict-raspberry-pi-calendar table                                { position:absolute; top:100px; left:50%; width:50%; margin:0 0 0 -25%; background:#fff; text-align:center; border-collapse:collapse; }
+.nict-raspberry-pi-calendar table caption                        { background:#fff; }
+.nict-raspberry-pi-calendar table caption           > *          { display:inline-block; line-height:50px; cursor:pointer; }
+.nict-raspberry-pi-calendar table caption           > *:hover    { background:#b1dcfb; }
+.nict-raspberry-pi-calendar table caption           .prev        { width:10%; }
+.nict-raspberry-pi-calendar table caption           .next        { width:10%; }
+.nict-raspberry-pi-calendar table caption           .date        { width:80%; }
+.nict-raspberry-pi-calendar table caption           .prev:before { content:"<"; }
+.nict-raspberry-pi-calendar table caption           .next:before { content:">"; }
+.nict-raspberry-pi-calendar table td                             { cursor:pointer; }
+.nict-raspberry-pi-calendar table td:hover                       { background:#b1dcfb; }
+.nict-raspberry-pi-calendar table td:empty                       { cursor:auto; }
+.nict-raspberry-pi-calendar table td:empty:hover                 { background:none; }
+.nict-raspberry-pi-calendar table td.disabled                    { cursor:auto; color:#aaa; }
+.nict-raspberry-pi-calendar table td.disabled:hover              { background:none; }
+
+.nict-raspberry-pi-calendar table[type="year" ] caption .date                  { cursor:auto; }
+.nict-raspberry-pi-calendar table[type="year" ] caption .date:hover            { background:none; }
+.nict-raspberry-pi-calendar table[type="year" ] td                             { line-height:150px; width:20%; }
+
+.nict-raspberry-pi-calendar table[type="month"] td                             { line-height:100px; width:25%; }
+
+.nict-raspberry-pi-calendar table[type="day"  ] caption .year:after            { content:"/"; }
+.nict-raspberry-pi-calendar table[type="day"  ] thead   th:nth-child(1):before { content:"Sun." }
+.nict-raspberry-pi-calendar table[type="day"  ] thead   th:nth-child(2):before { content:"Mon." }
+.nict-raspberry-pi-calendar table[type="day"  ] thead   th:nth-child(3):before { content:"Tue." }
+.nict-raspberry-pi-calendar table[type="day"  ] thead   th:nth-child(4):before { content:"Wed." }
+.nict-raspberry-pi-calendar table[type="day"  ] thead   th:nth-child(5):before { content:"Thu." }
+.nict-raspberry-pi-calendar table[type="day"  ] thead   th:nth-child(6):before { content:"Fri." }
+.nict-raspberry-pi-calendar table[type="day"  ] thead   th:nth-child(7):before { content:"Sat." }
+.nict-raspberry-pi-calendar table[type="day"  ] th                             { line-height:50px; }
+.nict-raspberry-pi-calendar table[type="day"  ] td                             { line-height:50px; width:14.2%; }
+
+.nict-raspberry-pi-calendar .close        { line-height:50px; cursor:pointer; }
+.nict-raspberry-pi-calendar .close:hover  { background:#b1dcfb; }
+.nict-raspberry-pi-calendar .close:before { content:"Close"; }
+
+@media screen and (max-width:640px)
+{
+  .nict-raspberry-pi-calendar table { left:10%; width:90%; margin:0 0 0 -5%; }
+}

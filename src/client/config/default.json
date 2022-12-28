@@ -1,0 +1,4 @@
+{
+  "server"  : { "url":"http://xxx.xxxxx.xx.xx/ui", "folder":"/hpvt/project/admin", "authorization":"user:password" },
+  "timeOut" : 20000
+}

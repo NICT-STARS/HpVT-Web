@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable"          content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport"                              content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script type="text/javascript" src="socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.touch-punch.min.js"></script>
+  <script type="text/javascript" src="js/jquery-nict-image-viewer.js"></script>
+  <script type="text/javascript" src="js/jquery-nict-raspberry-pi.js"></script>
+  <script type="text/javascript" src="js/index-env.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <link   type="text/css"        href="font-videojs/css/videojs-icons.css"    rel="stylesheet">
+  <link   type="text/css"        href="font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link   type="text/css"        href="css/raspberry-pi.css"                  rel="stylesheet"/>
+  <link   type="text/css"        href="css/index.css"                         rel="stylesheet"/>
+</head>
+<body>
+<form>
+  <header>
+    <div>
+      <span id="date"></span>
+      <span id="select_cols">
+        <i></i>
+        <select>
+          <option value="2">2columns</option>
+          <option value="3">3columns</option>
+          <option value="4">4columns</option>
+          <option value="5">5columns</option>
+        </select>
+      </span>
+    </div>
+  </header>
+  <ul id="list">
+    <li class="dummy"></li>
+    <li class="dummy"></li>
+    <li class="dummy"></li>
+    <li class="dummy"></li>
+  </ul>
+</form>
+</body>
+</html>

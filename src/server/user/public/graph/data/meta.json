@@ -1,0 +1,31 @@
+[
+	{
+		"id":"309061289901190",
+		"name":"瀬ノ下（せのした）",
+		"b1level":7.10,
+		"b2level":6.80,
+		"b3level":5.00,
+		"b4level":3.50,
+		"marker_min":false,
+		"marker_min_label":"先頭",
+		"marker_max":true,
+		"marker_max_label":"最新時刻",
+
+		"//": "以下MetricsGraphics.jsのオプション相当",
+		"min_y":1.0,
+		"max_y":11.0,
+		"yax_units":"m",
+		"legend":["水位"],
+		"colors":["blue"],
+	    "full_width": true,
+	    "height": 220,
+	    "full_height": false,
+		"right":25,
+		"top":20,
+		"point_size":3.5,
+	    "area": false,
+		"x_accessor":"date",
+		"y_accessor":"v1",
+		"target": "#eg-maingraph"
+	}
+]

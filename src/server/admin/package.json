@@ -1,0 +1,19 @@
+{
+  "name": "raspberry_pi_camera_server_admin",
+  "version": "2.9.0",
+  "description": "Raspberry Pi Camera Server(Admin)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "inoue computer service",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.0.1",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "jimp": "^0.6.0",
+    "serve-index": "^1.9.1",
+    "socket.io": "2.1.1"
+  }
+}

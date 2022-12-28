@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400');
+
+*    { -moz-user-select:none; -khtml-user-select:none; -webkit-user-select:none; user-select:none; }
+body { margin:0px; padding:0px; background:rgb(221,221,221); font-family:SourceHanSansJP-Light,YuGothic,"Yu Gothic",游ゴシック体,游ゴシック,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",メイリオ,Meiryo,"ＭＳ Ｐゴシック",Osaka,"MS PGothic",Arial,Helvetica,Verdana,sans-serif; }
+i    { display:inline-block; padding-right:0.5em; font:normal normal normal 14px/1 FontAwesome; font-size:inherit; text-rendering:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+header       { display:table; position:fixed; top:0px; left:0px; width:100%; height:54px; background:#fff; border-bottom:solid 1px #ddd; box-shadow:0 0px 4px rgba(0,0,0,0.1); z-index:99999; }
+header > *   { display:table-cell; text-align:center; vertical-align:middle; }
+header #date { font-size:17px; font-weight:500; font-family:"Roboto",sans-serif; letter-spacing:0.05em; padding:6px 20px; border:solid 1px #ddd; border-radius:2px; background:#f6f6f6; color:#666; }
+
+[id^="dialog_"]                                               { position:fixed;    top:  0px; left:0px; height:100%; width:100%; font-family:Roboto,sans-serif; z-index:99999; }
+[id^="dialog_"] .dialog_frame                                 { position:absolute; top:100px; left:0px; right:0px;   width: 50%; margin:auto; background:#fff; color:#666; }
+[id^="dialog_"] .dialog_button                                { display:table; width:100%; border-top:solid 1px #ccc; }
+[id^="dialog_"] .dialog_button > div                          { display:table-cell; width:50%; height:50px; text-align:center; vertical-align:middle; font-size:15px; cursor:pointer; }
+[id^="dialog_"] .dialog_button > div:hover                    { background:#ccc; color:#222; transition:0.3s; }
+[id^="dialog_"] .dialog_button > .dialog_button_ok            { border-right:solid 1px #ccc; }
+[id^="dialog_"] .dialog_button > .dialog_button_ok:before     { content:"OK"; }
+[id^="dialog_"] .dialog_button > .dialog_button_cancel:before { content:"Cancel"; }
+
+@media screen and (max-width:640px)
+{
+  [id^="dialog_"] .dialog_frame { width:80%; }
+}

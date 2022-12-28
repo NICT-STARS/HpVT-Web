@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable"          content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport"                              content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.touch-punch.min.js"></script>
+  <script type="text/javascript" src="js/jquery-nict-image-viewer.js"></script>
+  <script type="text/javascript" src="js/jquery-nict-raspberry-pi-calendar.js"></script>
+  <script type="text/javascript" src="js/jquery-nict-raspberry-pi.js"></script>
+  <script type="text/javascript" src="js/slick.min.js"></script>
+  <script type="text/javascript" src="js/viewer-env.js"></script>
+  <script type="text/javascript" src="js/viewer.js"></script>
+  <link   type="text/css"        href="font-videojs/css/videojs-icons.css"        rel="stylesheet"/>
+  <link   type="text/css"        href="font-awesome/css/font-awesome.min.css"     rel="stylesheet"/>
+  <link   type="text/css"        href="css/jquery-nict-raspberry-pi-calendar.css" rel="stylesheet"/>
+  <link   type="text/css"        href="css/slick.css"                             rel="stylesheet"/>
+  <link   type="text/css"        href="css/raspberry-pi.css"                      rel="stylesheet"/>
+  <link   type="text/css"        href="css/viewer.css"                            rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <div id="close_button" onclick="window.close()"></div>
+    <div><span id="date"><i></i><span></span><i></i></span></div>
+    <div id="view_url_button"><i></i></div>
+  </header>
+  <section id="tab">
+    <div class="picture"      ><i></i></div>
+    <div class="video"        ><i></i></div>
+    <div class="cut_video"    ><i></i></div>
+    <div class="one_day_video"><i></i></div>
+  </section>
+  <section id="image">
+    <div id="view_area">
+      <div id="image_viewer"></div>
+      <div id="video_viewer" style="display:none;"><iframe frameborder="no" scrolling="no" allowfullscreen></iframe></div>
+      <div id="image_button">
+        <i id="image_button_prevs"></i>
+        <i id="image_button_prev" ></i>
+        <i id="image_button_next" ></i>
+        <i id="image_button_nexts"></i>
+      </div>
+      <div id="image_bar"><span id="image_bar_download"></span><span id="image_bar_fullscreen"></span></div>
+    </div>
+    <ul  id="image_list"                                 ></ul>
+    <i   id="image_list_arrow_up"   style="display:none;"></i>
+    <i   id="image_list_arrow_down" style="display:none;"></i>
+    <div id="image_list_button"     style="display:none;">
+      <div id="image_list_button_6h_minus" style="display:none;"></div>
+      <div id="image_list_button_4h_minus" style="display:none;"></div>
+      <div id="image_list_button_1h_minus" style="display:none;"></div>
+      <div id="image_list_button_1h_plus"  style="display:none;"></div>
+      <div id="image_list_button_4h_plus"  style="display:none;"></div>
+      <div id="image_list_button_6h_plus"  style="display:none;"></div>
+    </div>
+  </section>
+  <section id="caption"><span></span><span></span></section>
+  <div id="fullscreen_area"><img id="fullscreen_viewer"/><div id="fullscreen_bar"><span id="fullscreen_bar_download"></span><span id="fullscreen_bar_fullscreen"></span></div></div>
+  <div id="wait_message"><div></div></div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Video</title>
+  <link rel="stylesheet" href="https://vjs.zencdn.net/5.19.2/video-js.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/video.css">
+</head>
+<body>
+  <div id="wraper">
+    <video id="my-video" width=1920 height=1080 class="video-js vjs-default-skin vjs-16-9" controls></video>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/jquery-nict-raspberry-pi.js"></script>
+  <script src="https://vjs.zencdn.net/5.19.2/video.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.5.3/videojs-contrib-hls.min.js"></script>
+  <script>
+    function playVideo()
+    {
+      var objButtonComponent = videojs.getComponent("Button");
+      var objDownloadButton  = videojs.extend      (objButtonComponent,
+      {
+        constructor : function()
+        {
+          objButtonComponent.apply      (this, arguments);
+          this              .addClass   ("vjs-download-control");
+          this              .controlText("download");
+        },
+        handleClick : function()
+        {
+          $.nictRaspberryPi.download($("video").attr("src"));
+        }
+      });
+
+      videojs.registerComponent("DownloadButton", objDownloadButton);
+
+      var objPlayer = videojs("my-video", { playbackRates : [0.2, 0.5, 1, 1.5, 2] });
+
+      objPlayer.getChild("controlBar").addChild("DownloadButton", {}, objPlayer.controlBar.children().length - 1);
+      objPlayer.pause   ();
+      objPlayer.load    ();
+      objPlayer.play    ();
+    }
+  </script>
+</body>
+</html>

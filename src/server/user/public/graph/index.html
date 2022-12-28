@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link type="text/css" href="lib/metricsgraphics.css" rel="stylesheet">
+    <link type="text/css" href="css/style.css" rel="stylesheet" id="light">
+    <title>水位</title>
+</head>
+<body>
+    <div id="body" class="flex" style="margin:0px">
+        <div class='col-lg-7 text-center box box-graph' id='spike'>
+            <div class='col-lg-12' id='eg-maingraph'>
+            </div>
+        </div>
+        <div class="box box-button" id="eg-axisx">
+            <ul class="eg-blevel">
+                <li><button type='button' class='btn' time-period='25' data-position=''>1日</button></li>
+                <li><button type='button' class='btn' time-period='73' data-position=''>3日</button></li>
+                <li><button type='button' class='btn' time-period='169' data-position=''>1週</button></li>
+            </ul>
+        </div>
+        <div class="box box-legend">
+            <!--<p>凡例</p>-->
+            <ul class="eg-blevel">凡例※データ値はダミーです。
+              <li><text id='eg-b1line'>--- </text>氾濫危険水位 <text id='eg-b1level'>-</text><br>（河川が氾濫するおそれのある水位）</li>
+              <li><text id='eg-b2line'>--- </text>避難判断水位 <text id='eg-b2level'>-</text><br>（避難情報発表の目安となる水位）</li>
+              <li><text id="eg-b3line">--- </text>氾濫注意水位 <text id='eg-b3level'>-</text><br>（河川の氾濫の発生を注意する目安）</li>
+              <li><text id="eg-b4line">--- </text>水防団待機水位 <text id='eg-b4level'>-</text><br>（水防団が待機する目安となる水位）</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="lib/metricsgraphics.js"></script>
+    <script type="text/javascript" src="lib/egraph.js"></script>
+    <!--<script type="text/javascript" src="js/main.js"></script>-->
+</body>
+</html>

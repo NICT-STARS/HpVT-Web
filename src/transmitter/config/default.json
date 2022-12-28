@@ -1,0 +1,30 @@
+{
+  "caption"      : "Camera 01",
+  "saveFileName" : "Camera_01",
+  "solutionType" : "image_video_rtmp",
+  "webServer"    :
+  {
+    "url"           : "http://xxx.xxxxx.xx.xx/transmitter",
+    "folder"        : "/hpvt/project/admin",
+    "authorization" : "user:password",
+    "ssh"           :
+    {
+      "host"         : "xxx.xxxxx.xx.xx",
+      "port"         : 22,
+      "user"         : "xxxxx",
+      "identityFile" : "~/.ssh/xxxxx_rsa",
+      "proxy"        :
+      {
+      //"host"         : "xxx.xxxxx.xx.xx",
+      //"port"         : 22,
+      //"user"         : "xxxxx",
+      //"identityFile" : "~/.ssh/xxxxx_rsa"
+      }
+    }
+  },
+  "videoFileServerPath"    : "/home/xxxxx/RaspberryPi/HpVT/project/admin/public/data/h264/%saveFileName/%y/%mm/%dd/%saveFileName_%y%mm%dd%H%M%S.h264",
+  "videoFilePath"          : "/var/opt/ssc/hpvt/storage",
+  "videoFileTransferLimit" : 8000, // Kbps (0 is no limit)
+  "hpvtExtentionServer"    : { "host" : "localhost", "port" : 6000 },
+  "graph"                  : false
+}

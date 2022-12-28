@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="41px" viewBox="0 0 48 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-signal-wifi-off-48px</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-signal-wifi-off-48px" transform="translate(0.000000, -2.000000)">
+            <polygon id="Shape" points="0 0 48 0 48 48 0 48"></polygon>
+            <path d="M47.28,14 C46.38,13.32 37.43,6 24,6 C20.99,6 18.22,6.38 15.7,6.96 L36.36,27.6 L47.28,14 Z M6.55,2.89 L4,5.44 L8.11,9.55 C3.83,11.52 1.19,13.65 0.72,14.01 L23.98,42.99 L24,43 L24.02,42.98 L31.82,33.26 L38.45,39.89 L41,37.34 L6.55,2.89 Z" id="Shape" fill="#666666" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
